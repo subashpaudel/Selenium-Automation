@@ -1,0 +1,14 @@
+{
+  "DEBUG": {
+    "browser": "chrome",
+    "dbConnectionString": "",
+    "username": "user1",
+    "password": "password1"
+  },
+  "SMOKE": {
+    "browser": "microsoftEdge",
+    "dbConnectionString": "",
+    "username": "user2",
+    "password": "password2"
+  }
+}

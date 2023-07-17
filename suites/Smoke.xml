@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="org.F1Soft.listners.AnnotationTransformer"/>
+    </listeners>
+    <test name="Smoke-Flight Booking">
+        <classes>
+<!--            <class name="org.F1Soft.TestCases.RealExample"></class>-->
+            <class name="org.F1Soft.testModules.LoginTest">
+<!--                <methods>-->
+<!--                    <include name="LogTest"/>-->
+<!--                </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="false">
+    <property name="LOG_ROOT" value="${user.dir}/target/logs" />
+    <property name="HTML_LOG_FILE" value="applicationLogs" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="fileAppender" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_ROOT}/testLog.log</file>
+        <append>true</append>
+        <encoder>
+           <pattern>%d [%thread] %-%logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="HTML" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_ROOT}/${HTML_LOG_FILE}.html</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${LOG_ROOT}/${HTML_LOG_FILE}-%d{yyyy-MM-dd}.%i.html.gz</fileNamePattern>
+            <!-- each archived file's size will be max 10MB -->
+            <maxFileSize>10MB</maxFileSize>
+            <!-- 30 days to keep -->
+            <maxHistory>30</maxHistory>
+            <!-- total size of all archive files, if total size > 100GB, it will delete old archived file -->
+            <totalSizeCap>100GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <charset>UTF-8</charset>
+            <layout class="ch.qos.logback.classic.html.HTMLLayout">
+                <pattern>%d{HH:mm:ss.SSS}%thread%level%logger%line%msg</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <logger name="org.F1Soft.Helpers.Log" level="DEBUG" additivity="false">
+        <appender-ref ref="HTML"/>
+        <appender-ref ref="fileAppender"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+<!--    <root level="INFO">-->
+<!--        <appender-ref ref="STDOUT" />-->
+<!--        <appender-ref ref="HTML" />-->
+<!--    </root>-->
+</configuration>

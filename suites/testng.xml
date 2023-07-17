@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Example Test">
+    <listeners>
+        <listener class-name="org.F1Soft.listners.ReportListner"/>
+    </listeners>
+    <test name="Selenium4Features" preserve-order="false">
+        <parameter name="emailId" value="tester456@gmail.com"/>
+        <parameter name="password" value="test@123"/>
+        <groups>
+            <run>
+                <include name="Web"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="org.F1Soft.TestCases.Selenium4Features"/>
+<!--            <class name="org.F1Soft.TestCases.RealExample"/>-->
+        </classes>
+
+    </test> <!-- Test -->
+
+<!--    <test name="RealExample">-->
+<!--        <parameter name="emailId" value="tester789@gmail.com"/>-->
+<!--        <classes>-->
+<!--            <class name="TestCases.RealExample"/>-->
+<!--        </classes>-->
+
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
+</suite> <!-- Suite -->
