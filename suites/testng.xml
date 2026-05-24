@@ -5,8 +5,8 @@
         <listener class-name="org.F1Soft.listners.ReportListner"/>
     </listeners>
     <test name="Selenium4Features" preserve-order="false">
-        <parameter name="emailId" value="tester456@gmail.com"/>
-        <parameter name="password" value="test@123"/>
+        <parameter name="emailId" value="###"/>
+        <parameter name="password" value="###"/>
         <groups>
             <run>
                 <include name="Web"/>
